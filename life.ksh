@@ -18,7 +18,9 @@ function initialize
     typeset -i x y
     # pad arrays with 0's all around for easy neighbor calcs
     for y in {0..$((ysiz+1))}; do
-        cells0[y]=($(for x in {0..$((xsiz+1))};do echo -n "0 ";done)) 
+        for x in {0..$((xsiz+1))};do
+            cells0[y][x]=0
+        done
     done
     # randomize cells
     for i in {0..$((xsiz*ysiz/5))};do
